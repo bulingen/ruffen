@@ -7,5 +7,6 @@ const region = "eu-west-1"
 
 const app = new cdk.App();
 new StaticSite(app, 'RuffenStaticSite', {
+  distFolder: '../dist',
   env: { account, region }
 });
