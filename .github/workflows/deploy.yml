@@ -47,33 +47,13 @@ jobs:
           yarn cdk deploy RuffenStaticSite --require-approval never
         env:
           AWS_DEFAULT_REGION: eu-west-1
-
-      - name: Notify Discord - Success
-        if: success()
-        uses: tsickert/discord-webhook@v5.3.0
+      
+      - uses: sarisia/actions-status-discord@v1
+        name: Notify
+        if: always()
         with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: |
-            ✅ **Deployment Successful!**
-            
-            **Repository:** ${{ github.repository }}
-            **Branch:** ${{ github.ref_name }}
-            **Commit:** [`${{ github.sha }}`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})
-            **Author:** ${{ github.actor }}
-            
-            🚀 Static site deployed successfully!
-
-      - name: Notify Discord - Failure
-        if: failure()
-        uses: tsickert/discord-webhook@v5.3.0
-        with:
-          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: |
-            ❌ **Deployment Failed!**
-            
-            **Repository:** ${{ github.repository }}
-            **Branch:** ${{ github.ref_name }}
-            **Commit:** [`${{ github.sha }}`](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }})
-            **Author:** ${{ github.actor }}
-            
-            💥 Check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          status: ${{ job.status }}
+          title: "Deploy Ruffen site"
+          username: GitHub Actions
+          avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
