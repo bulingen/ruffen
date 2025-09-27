@@ -1,9 +1,15 @@
 ---
-const title = "";
-const description = "";
-const imageUrl = "";
-const fullPageUrl = "";
 import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description: string;
+    imageUrl?: string;
+}
+
+const fallbackImage = "/images/studio_hero.jpg";
+
+const { title, imageUrl = fallbackImage, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,8 +21,26 @@ import "../styles/global.css";
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={imageUrl} />
-        <meta property="og:url" content={fullPageUrl} />
+        <!-- <meta property="og:url" content={fullPageUrl} /> -->
         <title>{title}</title>
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
     </head>
     <body class="min-h-[100vh] flex flex-col">
         <div class="grow">
