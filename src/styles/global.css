@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Alan Sans", sans-serif;
+    --font-serif: "Libre Bodoni", serif;
+}
+
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+    name: "ruff";
+    default: true;
+    prefersdark: false;
+    color-scheme: "dark";
+    --color-base-100: oklch(37% 0.044 257.287);
+    --color-base-200: oklch(44% 0.043 257.281);
+    --color-base-300: oklch(12% 0.042 264.695);
+    --color-base-content: oklch(95% 0.026 236.824);
+    --color-primary: oklch(50% 0.118 165.612);
+    --color-primary-content: oklch(96% 0.016 293.756);
+    --color-secondary: oklch(92% 0.013 255.508);
+    --color-secondary-content: oklch(20% 0.042 265.755);
+    --color-accent: oklch(90% 0.076 70.697);
+    --color-accent-content: oklch(20% 0.042 265.755);
+    --color-neutral: oklch(44% 0.11 240.79);
+    --color-neutral-content: oklch(97% 0.013 236.62);
+    --color-info: oklch(88% 0.059 254.128);
+    --color-info-content: oklch(20% 0.042 265.755);
+    --color-success: oklch(69% 0.17 162.48);
+    --color-success-content: oklch(98% 0.031 120.757);
+    --color-warning: oklch(94% 0.129 101.54);
+    --color-warning-content: oklch(20% 0.042 265.755);
+    --color-error: oklch(70% 0.191 22.216);
+    --color-error-content: oklch(97% 0.013 17.38);
+    --radius-selector: 0rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 1;
+}

@@ -1,0 +1,41 @@
+---
+const title = "";
+const description = "";
+const imageUrl = "";
+const fullPageUrl = "";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:url" content={fullPageUrl} />
+        <title>{title}</title>
+    </head>
+    <body class="min-h-[100vh] flex flex-col">
+        <div class="grow">
+            <slot />
+        </div>
+        <footer class="footer pt-10 pb-20 bg-neutral-900 text-neutral-content">
+            <div class="footer px-2 max-w-3xl mx-auto">
+                <div>
+                    <p>
+                        Studio Ruffen<br />Stockholm, Sverige<br />Tobias
+                        Hansson ©2025
+                    </p>
+                    <p>
+                        <a href="#contact" class="link link-hover"
+                            >&raquo; Kontakt &laquo;
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
